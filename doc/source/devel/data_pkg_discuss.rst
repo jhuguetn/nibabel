@@ -4,6 +4,17 @@
 Principles of data package
 ##########################
 
+*******
+Summary
+*******
+
+This is a discussion of data packages, as they are currently implemented in
+nibabel / nipy.
+
+This API proved to be very uncomfortable, and we intend to replace it fairly
+soon.  See ``data_packages.rst`` in the `nibabel wiki`_ for our current
+thinking, not yet implemented.
+
 **********
 Motivation
 **********
@@ -264,7 +275,7 @@ Issues
 ******
 
 From a brief scan of the `debian package management documentation
-<http://www.debian.org/doc/manuals/debian-reference/ch02.en.html>`_.
+<https://www.debian.org/doc/manuals/debian-reference/ch02.en.html>`_.
 
 Dependency management
 =====================
@@ -281,7 +292,7 @@ Authentication and validation
 For dependency and validation, see the `Debian secure apt`_ page. One related
 proposal would be:
 
-.. _Debian secure apt: http://wiki.debian.org/SecureApt
+.. _Debian secure apt: https://wiki.debian.org/SecureApt
 
 * Each package instantiation would carry a table of checksums for the files
   within.  Someone using this instantiation would check the checksums to confirm

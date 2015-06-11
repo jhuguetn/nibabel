@@ -34,6 +34,10 @@ sys.path.append(os.path.abspath('../sphinxext'))
 rel = {}
 execfile('../../nibabel/info.py', rel)
 
+# Write long description from info
+with open('_long_description.inc', 'wt') as fobj:
+    fobj.write(rel['LONG_DESCRIPTION'])
+
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = ['sphinx.ext.autodoc',
@@ -212,6 +216,7 @@ html_show_sourcelink = True
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'nibabeldoc'
 
+mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 
 # -- Options for LaTeX output --------------------------------------------------
 
@@ -247,8 +252,15 @@ latex_documents = [
 
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'http://docs.python.org/': None}
+intersphinx_mapping = {'https://docs.python.org/': None}
 
 # Config of plot_directive
 plot_include_source = True
 plot_html_show_source_link = False
+
+# Numpy extensions
+# ----------------
+# Worked out by Steven Silvester in
+# https://github.com/scikit-image/scikit-image/pull/1356
+numpydoc_show_class_members = False
+numpydoc_class_members_toctree = False

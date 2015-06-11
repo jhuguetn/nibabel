@@ -10,8 +10,8 @@
 
 See:
 
-* http://en.wikipedia.org/wiki/Rotation_matrix
-* http://en.wikipedia.org/wiki/Euler_angles
+* https://en.wikipedia.org/wiki/Rotation_matrix
+* https://en.wikipedia.org/wiki/Euler_angles
 * http://mathworld.wolfram.com/EulerAngles.html
 
 See also: *Representing Attitude with Euler Angles and Quaternions: A
@@ -61,7 +61,7 @@ rotation matrix, we need to define:
   vectors move within the axis frame (extrinsic)
 * the handedness of the coordinate system
 
-See: http://en.wikipedia.org/wiki/Rotation_matrix#Ambiguities
+See: https://en.wikipedia.org/wiki/Rotation_matrix#Ambiguities
 
 We are using the following conventions:
 
@@ -295,7 +295,7 @@ def euler2quat(z=0, y=0, x=0):
     2. Generated formulae from 1.) for quaternions corresponding to
        theta radians rotations about ``x, y, z`` axes
     3. Apply quaternion multiplication formula -
-       http://en.wikipedia.org/wiki/Quaternions#Hamilton_product - to
+       https://en.wikipedia.org/wiki/Quaternions#Hamilton_product - to
        formulae from 2.) to give formula for combined rotations.
     '''
     z = z/2.0
@@ -339,7 +339,7 @@ def quat2euler(q):
     large.
     '''
     # delayed import to avoid cyclic dependencies
-    import nibabel.quaternions as nq
+    from . import quaternions as nq
     return mat2euler(nq.quat2mat(q))
 
 
@@ -373,7 +373,7 @@ def euler2angle_axis(z=0, y=0, x=0):
     True
     '''
     # delayed import to avoid cyclic dependencies
-    import nibabel.quaternions as nq
+    from . import quaternions as nq
     return nq.quat2angle_axis(euler2quat(z, y, x))
 
 
@@ -411,6 +411,6 @@ def angle_axis2euler(theta, vector, is_normalized=False):
     repetition is large.
     '''
     # delayed import to avoid cyclic dependencies
-    import nibabel.quaternions as nq
+    from . import quaternions as nq
     M = nq.angle_axis2mat(theta, vector, is_normalized)
     return mat2euler(M)

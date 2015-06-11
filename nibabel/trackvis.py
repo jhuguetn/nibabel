@@ -21,7 +21,7 @@ except NameError:  # python 3
 
 # Definition of trackvis header structure.
 # See http://www.trackvis.org/docs/?subsect=fileformat
-# See http://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html
+# See https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html
 header_1_dtd = [
     ('id_string', 'S6'),
     ('dim', 'h', 3),
@@ -86,11 +86,13 @@ DPCS_TO_TAL = np.diag([-1, -1, 1, 1])
 
 
 class HeaderError(Exception):
-    pass
+    """ Error in trackvis header
+    """
 
 
 class DataError(Exception):
-    pass
+    """ Error in trackvis data
+    """
 
 
 def read(fileobj, as_generator=False, points_space=None):
@@ -741,7 +743,8 @@ def aff_to_hdr(affine, trk_hdr, pos_vox=None, set_order=None):
 
 
 class TrackvisFileError(Exception):
-    pass
+    """ Error from TrackvisFile class
+    """
 
 
 class TrackvisFile(object):
